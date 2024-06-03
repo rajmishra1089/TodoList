@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({origin: 'http://localhost:3001',credentials: true })); 
+app.use(cors({origin: 'https://todolist-1-elk8.onrender.com',credentials: true })); 
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
