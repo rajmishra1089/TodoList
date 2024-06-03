@@ -15,7 +15,7 @@ const dbConnect = require('./config/database');
 dbConnect();
 
 const user = require('./routes/user');
-app.use('/todo/v1/user',user)
+app.use('/user',user)
 
 app.listen(PORT,()=>{
     console.log(`App is running on ${PORT}`);
