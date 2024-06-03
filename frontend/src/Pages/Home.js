@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash} from 'react-icons/fa'; // Import eye icons from reac
 import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     const { login } = useUser();
     const navigate=useNavigate();
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -24,7 +25,8 @@ export default function Home() {
             // Perform sign-up form submission logic here
             console.log('Signup form submitted:', formData);
             try {
-                axios.post('http://localhost:4000/todo/v1/user/signup',{ name:formData.name ,email:formData.email, password:formData.password },{withCredentials:true})
+                const signupEndPoint=`${apiBaseUrl}/user/signup`
+                axios.post(signupEndPoint,{ name:formData.name ,email:formData.email, password:formData.password },{withCredentials:true})
                 .then((result)=>{
                     if(result.data.success === true) {
                         toast.success("User registered successfully");
@@ -42,7 +44,8 @@ export default function Home() {
             // Perform login form submission logic here
             console.log('Login form submitted:', formData);
             try {
-                axios.post('http://localhost:4000/todo/v1/user/login',{ email:formData.email, password:formData.password },{withCredentials:true})
+                const loginEndPoint=`${apiBaseUrl}/user/login`
+                axios.post(loginEndPoint,{ email:formData.email, password:formData.password },{withCredentials:true})
                 .then((result)=>{
                     if(result.data.success === true) {
                         const LoggedInUser={
