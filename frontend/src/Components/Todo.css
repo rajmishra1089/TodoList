@@ -1,0 +1,53 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .add-todo {
+    margin-bottom: 20px;
+  }
+  
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+  
+  .content-container {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .todo-content {
+    flex: 1;
+  }
+  
+  input[type="text"] {
+    width: calc(100% - 100px); /* Adjust width to leave space for button */
+    margin-right: 10px; /* Add some space between input field and button */
+  }
+  
+  .add-btn {
+    width: 100px;
+  }
+  
+  .save-btn,
+  .edit-btn,
+  .delete-btn {
+    margin-left: 5px;
+  }
+  
