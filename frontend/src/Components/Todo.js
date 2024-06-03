@@ -18,7 +18,7 @@ export default function Todo() {
     }, []);
 
     const getAllTodo = () => {
-        const getAllTodoEndPoint=`${apiBaseUrl}/getAllTodo`
+        const getAllTodoEndPoint=`${apiBaseUrl}/user/getAllTodo`
         axios.get(getAllTodoEndPoint,{withCredentials:true})
             .then(response => {
                 if (response.data.success) {
@@ -42,7 +42,7 @@ export default function Todo() {
 
     const handleSave = (id, editedContent) => {
         // Send the edited content to the backend
-        const editedTodoEndPoint=`${apiBaseUrl}/edittodo`
+        const editedTodoEndPoint=`${apiBaseUrl}/user/edittodo`
         axios.post(editedTodoEndPoint, { uniqueId: id, updateData:  editedContent }, { withCredentials: true })
             .then((result) => {
                 // Handle success response from the backend if needed
@@ -66,7 +66,7 @@ export default function Todo() {
 
     const handleDelete = (id) => {
         // Perform delete operation or call back function with the id
-        const deletetodoEndPoint=`${apiBaseUrl}/deletetodo`
+        const deletetodoEndPoint=`${apiBaseUrl}/user/deletetodo`
         axios.post(deletetodoEndPoint,{_id:id},{withCredentials:true})
         .then((result)=>{
             console.log(result);
@@ -80,7 +80,7 @@ export default function Todo() {
 
     const handleAddTodo = () => {
         // Add new todo item
-        const addTodoEndPoint=`${apiBaseUrl}/addtodo`
+        const addTodoEndPoint=`${apiBaseUrl}/user/addtodo`
         axios.post(addTodoEndPoint, { newdata: newTodo }, { withCredentials: true })
             .then((result) => {
                 console.log(result);
